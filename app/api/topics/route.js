@@ -16,3 +16,11 @@ export async function GET(req){
     const topics = await Topic.find();
     return NextResponse.json(topics, {status: 200})
 }
+
+export async function DELETE(req){
+    const id = req.nextUrl.searchParams.get("id");
+    await connectMongoDB();
+    await Topic.findByIdAndDelete(id);
+    return NextResponse.json({message:"topic deleted"}, {status: 200})
+
+}

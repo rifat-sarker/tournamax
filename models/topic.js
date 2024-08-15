@@ -2,7 +2,7 @@ import mongoose, {Schema} from "mongoose";
 
 const topicSchema = new Schema(
     {
-        tile: String,
+        title: String,
         description: String,
     },
     {
