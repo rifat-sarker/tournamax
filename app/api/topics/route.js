@@ -11,10 +11,10 @@ export async function POST(req){
 
 
 
-export async function GET(req){
+export async function GET(){
     await connectMongoDB();
     const topics = await Topic.find();
-    return NextResponse.json(topics, {status: 200})
+    return NextResponse.json({topics}, {status: 200})
 }
 
 export async function DELETE(req){
