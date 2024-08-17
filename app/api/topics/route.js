@@ -12,9 +12,23 @@ export async function POST(req){
 
 
 export async function GET(){
-    await connectMongoDB();
-    const topics = await Topic.find();
-    return NextResponse.json({topics})
+    // await connectMongoDB();
+    // const topics = await Topic.find();
+    // return NextResponse.json({topics})
+
+    try {
+        await connectMongoDB(); // Connect to the MongoDB database
+
+        const topics = await Topic.find(); // Fetch topics from the database
+
+        // Return JSON response
+        return NextResponse.json({ topics });
+    } catch (error) {
+        console.error('Error fetching topics:', error);
+
+        // Handle error and return a server error response
+        return NextResponse.json({ error: 'Failed to fetch topics' }, { status: 500 });
+    }
 }
 
 export async function DELETE(req){
