@@ -9,9 +9,7 @@ const allTopics = async () => {
     // if (res) {
     //   return res.data;
     // }
-    const res = await fetch("http://localhost:3000/api/topics", {
-      cache: "no-store"
-    })
+    const res = await fetch("http://localhost:3000/api/topics")
     if(!res.ok){
       throw new Error('failed to load topics')
     }
@@ -21,7 +19,7 @@ const allTopics = async () => {
   }
 };
 export default async function TopicList() {
-  const { topics } = await allTopics();
+  const  {topics}  = await allTopics();
   console.log(topics);
   return (
     <>
