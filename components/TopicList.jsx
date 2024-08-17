@@ -25,7 +25,7 @@ export default async function TopicList() {
     <>
       {topics.map((topic) => (
         <div
-          key={topic.id}
+          key={topic._id}
           className="flex justify-between gap-5 p-4 border rounded-lg shadow-md my-3 items-start"
         >
           <div>
