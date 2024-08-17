@@ -14,8 +14,8 @@ export default function EditTopic({ id, title, description }) {
       const res = await axios.put(`http://localhost:3000/api/topics/${id}` ,{newTitle, newDescription});
       if (res) {
         // return res.data;
-        router.refresh();
         router.push("/");
+        router.refresh();
       }
     } catch (error) {
       console.log(error);

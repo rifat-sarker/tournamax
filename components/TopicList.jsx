@@ -35,7 +35,7 @@ export default async function TopicList() {
             <p>{topic.description}</p>
           </div>
           <div className="flex gap-4">
-            <DeleteBtn/>
+            <DeleteBtn id={topic._id}/>
             <Link href={`/editTopic/${topic._id}`}>
               <FaEdit className="size-6 text-slate-500" />
             </Link>

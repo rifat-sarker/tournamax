@@ -1,8 +1,10 @@
 "use client";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 export default function DeleteBtn({ id }) {
+const router = useRouter();
 
   const deleteTopic = async () => {
     const confirmed = confirm("Are you sure?");
@@ -13,6 +15,7 @@ export default function DeleteBtn({ id }) {
       if (res) {
         console.log("Topic deleted successfully");
       } 
+      router.refresh();
     }
   };
 
