@@ -1,17 +1,14 @@
 import Link from "next/link";
 import { FaEdit } from "react-icons/fa";
 import DeleteBtn from "./DeleteBtn";
+import axios from "axios";
 
 const allTopics = async () => {
   try {
-   const res = await fetch("http://localhost:3000/api/topics", {
-    cache: "no-store"
-   })
-
-    if (!res.ok) {
-      throw new Error("failed");
+    const res = await axios.get("http://localhost:3000/api/topics");
+    if (res) {
+      return res.data;
     }
-    return res.json();
   } catch (error) {
     console.log(error, "error when getting topics");
   }
@@ -19,9 +16,7 @@ const allTopics = async () => {
 
 export default async function TopicList() {
   const { topics } = await allTopics();
-
-  console.log(topics)
- 
+  console.log(topics);
 
   return (
     <>
@@ -35,12 +30,12 @@ export default async function TopicList() {
             <p>{topic.description}</p>
           </div>
           <div className="flex gap-4">
-            <DeleteBtn id={topic._id}/>
+            <DeleteBtn id={topic._id} />
             <Link href={`/editTopic/${topic._id}`}>
               <FaEdit className="size-6 text-slate-500" />
             </Link>
           </div>
-        </div> 
+        </div>
       ))}
     </>
   );
