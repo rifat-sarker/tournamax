@@ -5,11 +5,11 @@ import axios from "axios";
 
 const allTopics = async () => {
   try {
-    // const res = await axios.get("http://localhost:3000/api/topics");
+    // const res = await axios.get("${process.env.NEXT_PUBLIC_API_URL}/api/topics");
     // if (res) {
     //   return res.data;
     // }
-    const res = await fetch("http://localhost:3000/api/topics")
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/topics`)
     if(!res.ok){
       throw new Error('failed to load topics')
     }

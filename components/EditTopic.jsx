@@ -11,7 +11,7 @@ export default function EditTopic({ id, title, description }) {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(`http://localhost:3000/api/topics/${id}` ,{newTitle, newDescription});
+      const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/topics/${id}` ,{newTitle, newDescription});
       if (res) {
         // return res.data;
         router.push("/");

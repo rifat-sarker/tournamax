@@ -12,7 +12,7 @@ export default function AddTopic() {
     const description = e.target.description.value;
 
     const addTopic = { title, description };
-    const res = axios.post("http://localhost:3000/api/topics", addTopic);
+    const res = axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/topics`, addTopic);
     if(!title || !description){
       alert("Please fill all fields");
       return;

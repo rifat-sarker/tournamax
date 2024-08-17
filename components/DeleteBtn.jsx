@@ -10,7 +10,7 @@ const router = useRouter();
     const confirmed = confirm("Are you sure?");
     if (confirmed) {
       const res = await axios.delete(
-        `http://localhost:3000/api/topics?id=${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/topics?id=${id}`
       );
       if (res) {
         console.log("Topic deleted successfully");
