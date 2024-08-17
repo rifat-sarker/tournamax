@@ -4,15 +4,15 @@ import DeleteBtn from "./DeleteBtn";
 import axios from "axios";
 
 const allTopics = async () => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/topics`,)
-    if(!res.ok){
-      throw new Error('failed to load topics')
-    }
-    return res.json();
-  } catch (error) {
-    console.log(error, "error when getting topics");
+  
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/topics`, {
+    cache: "no-store"
+  })
+  if(!res.ok){
+    throw new Error('failed to load topics')
   }
+  return res.json();
+  
 };
 export default async function TopicList() {
   const { topics } = await allTopics();
