@@ -3,7 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import DeleteBtn from "./DeleteBtn";
 import axios from "axios";
 
-const getTopics = async () => {
+const allTopics = async () => {
   try {
     // const res = await axios.get("http://localhost:3000/api/topics");
     // if (res) {
@@ -19,13 +19,13 @@ const getTopics = async () => {
   }
 };
 export default async function TopicList() {
-  const  {topics}  = await getTopics();
+  const { topics } = await allTopics();
   console.log(topics);
   return (
     <>
       {topics.map((topic) => (
         <div
-          key={topic._id}
+          key={topic.id}
           className="flex justify-between gap-5 p-4 border rounded-lg shadow-md my-3 items-start"
         >
           <div>
