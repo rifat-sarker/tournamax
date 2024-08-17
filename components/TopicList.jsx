@@ -13,11 +13,9 @@ const allTopics = async () => {
     console.log(error, "error when getting topics");
   }
 };
-
 export default async function TopicList() {
   const { topics } = await allTopics();
   console.log(topics);
-
   return (
     <>
       {topics.map((topic) => (
