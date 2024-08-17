@@ -5,9 +5,7 @@ import axios from "axios";
 
 const allTopics = async () => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/topics`, {
-      cache:"force-cache"
-    })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/topics`,)
     if(!res.ok){
       throw new Error('failed to load topics')
     }
