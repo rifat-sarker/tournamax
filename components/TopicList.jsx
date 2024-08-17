@@ -4,9 +4,9 @@ import DeleteBtn from "./DeleteBtn";
 
 const allTopics = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/topics", {
-      cache: "no-store",
-    });
+   const res = await fetch("http://localhost:3000/api/topics", {
+    cache: "no-store"
+   })
 
     if (!res.ok) {
       throw new Error("failed");
@@ -20,7 +20,7 @@ const allTopics = async () => {
 export default async function TopicList() {
   const { topics } = await allTopics();
 
-  // console.log(topics)
+  console.log(topics)
  
 
   return (
